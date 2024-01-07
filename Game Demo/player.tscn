@@ -1,0 +1,123 @@
+[gd_scene load_steps=10 format=3 uid="uid://dba8t7daowokd"]
+
+[ext_resource type="Script" path="res://player.gd" id="1_6b675"]
+[ext_resource type="Texture2D" uid="uid://bbpbilri2kxtf" path="res://Small-8-Direction-Characters_by_AxulArt/Small-8-Direction-Characters_by_AxulArt.png" id="1_cp1cj"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_s6gl6"]
+size = Vector3(0.14679, 0.148987, 0.14801)
+
+[sub_resource type="Animation" id="Animation_h0hkw"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite3D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [16, 16, 16]
+}
+
+[sub_resource type="Animation" id="Animation_42dxn"]
+resource_name = "idle"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite3D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [16, 16]
+}
+
+[sub_resource type="Animation" id="Animation_eel00"]
+resource_name = "new_walk"
+length = 0.3
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite3D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [24, 24, 24]
+}
+
+[sub_resource type="Animation" id="Animation_genk3"]
+resource_name = "walk"
+length = 0.4
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite3D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [8, 24]
+}
+
+[sub_resource type="Animation" id="Animation_epbep"]
+resource_name = "another_one"
+length = 0.4
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite3D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [8, 24]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ld6w0"]
+_data = {
+"RESET": SubResource("Animation_h0hkw"),
+"another_one": SubResource("Animation_epbep"),
+"idle": SubResource("Animation_42dxn"),
+"new_walk": SubResource("Animation_eel00"),
+"walk": SubResource("Animation_genk3")
+}
+
+[node name="player" type="CharacterBody3D"]
+script = ExtResource("1_6b675")
+
+[node name="Sprite3D" type="Sprite3D" parent="."]
+billboard = 2
+shaded = true
+double_sided = false
+alpha_cut = 2
+texture_filter = 0
+texture = ExtResource("1_cp1cj")
+hframes = 8
+vframes = 12
+frame = 16
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.242044, 0.897489)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.000274658, -0.0249329, -0.00357056)
+shape = SubResource("BoxShape3D_s6gl6")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_ld6w0")
+}
