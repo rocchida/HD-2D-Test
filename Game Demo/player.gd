@@ -6,7 +6,7 @@ const JUMP_VELOCITY = 4.5
 var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
 @onready var playerBody = $"."
 	
-# _physics_process is a function provided by Godot. TLDR - It runs like once a frame
+# _physics_process is a function provided by Godot. TLDR - It runs like once a frame, huehuehue
 # I used this as a main method and broke down all logic into smaller functions for readability
 func _physics_process(delta):
 	handle_gravity_and_jumping(delta)
