@@ -1,0 +1,9 @@
+[gd_scene format=3 uid="uid://b7vr273dg7d7n"]
+
+[node name="BattleUI" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="CombatUICanvas" type="CanvasLayer" parent="."]
