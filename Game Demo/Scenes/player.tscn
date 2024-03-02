@@ -1,0 +1,298 @@
+[gd_scene load_steps=19 format=3 uid="uid://dba8t7daowokd"]
+
+[ext_resource type="Script" path="res://Scripts/player.gd" id="1_6b675"]
+[ext_resource type="Texture2D" uid="uid://b3hrrrhy5pwlf" path="res://CustomAssets/CharacterArt/jb4KQ6O.png" id="2_8fqaj"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_s6gl6"]
+size = Vector3(0.14679, 0.161408, 0.14801)
+
+[sub_resource type="Animation" id="Animation_h0hkw"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite3D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [9]
+}
+
+[sub_resource type="Animation" id="Animation_epbep"]
+resource_name = "another_one"
+length = 0.4
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite3D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [8, 24]
+}
+
+[sub_resource type="Animation" id="Animation_42dxn"]
+resource_name = "idle"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite3D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [16, 16]
+}
+
+[sub_resource type="Animation" id="Animation_kefjx"]
+resource_name = "new_animationasdf"
+length = 0.6
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite3D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [13, 22, 22]
+}
+
+[sub_resource type="Animation" id="Animation_eel00"]
+resource_name = "new_walk"
+length = 0.3
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite3D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [24, 24, 24]
+}
+
+[sub_resource type="Animation" id="Animation_genk3"]
+resource_name = "walk"
+length = 0.45
+loop_mode = 1
+step = 0.15
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:animation_frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.15, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [0, 0, 0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite3D:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.15, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [8, 8, 8]
+}
+
+[sub_resource type="Animation" id="Animation_5qdru"]
+resource_name = "walk_east"
+length = 0.45
+step = 0.15
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite3D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.15, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [10, 2, 18]
+}
+
+[sub_resource type="Animation" id="Animation_hx51u"]
+resource_name = "walk_north"
+length = 0.45
+step = 0.15
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite3D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = false
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.15, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [8, 0, 16]
+}
+
+[sub_resource type="Animation" id="Animation_773in"]
+resource_name = "walk_northeast"
+length = 0.45
+step = 0.15
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite3D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.15, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [1, 9, 17]
+}
+
+[sub_resource type="Animation" id="Animation_j3a6t"]
+resource_name = "walk_northwest"
+length = 0.45
+step = 0.15
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite3D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.15, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [7, 15, 23]
+}
+
+[sub_resource type="Animation" id="Animation_4gij1"]
+resource_name = "walk_south"
+length = 0.45
+step = 0.15
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite3D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.15, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [4, 12, 20]
+}
+
+[sub_resource type="Animation" id="Animation_eapik"]
+resource_name = "walk_southeast"
+length = 0.45
+step = 0.15
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite3D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.15, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [3, 11, 19]
+}
+
+[sub_resource type="Animation" id="Animation_hxjd0"]
+resource_name = "walk_southwest"
+length = 0.45
+step = 0.15
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite3D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.15, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [5, 13, 21]
+}
+
+[sub_resource type="Animation" id="Animation_jr8ok"]
+resource_name = "walk_west"
+length = 0.45
+step = 0.15
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite3D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.15, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [6, 14, 22]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ld6w0"]
+_data = {
+"RESET": SubResource("Animation_h0hkw"),
+"another_one": SubResource("Animation_epbep"),
+"idle": SubResource("Animation_42dxn"),
+"new_animationasdf": SubResource("Animation_kefjx"),
+"new_walk": SubResource("Animation_eel00"),
+"walk": SubResource("Animation_genk3"),
+"walk_east": SubResource("Animation_5qdru"),
+"walk_north": SubResource("Animation_hx51u"),
+"walk_northeast": SubResource("Animation_773in"),
+"walk_northwest": SubResource("Animation_j3a6t"),
+"walk_south": SubResource("Animation_4gij1"),
+"walk_southeast": SubResource("Animation_eapik"),
+"walk_southwest": SubResource("Animation_hxjd0"),
+"walk_west": SubResource("Animation_jr8ok")
+}
+
+[node name="player" type="CharacterBody3D"]
+script = ExtResource("1_6b675")
+
+[node name="Sprite3D" type="Sprite3D" parent="."]
+transform = Transform3D(0.0604739, 0, 0, 0, 0.0604739, 0, 0, 0, 1, 0, 0, 0)
+billboard = 2
+shaded = true
+double_sided = false
+alpha_cut = 2
+texture_filter = 0
+texture = ExtResource("2_8fqaj")
+hframes = 8
+vframes = 3
+frame = 9
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.997862, -0.0653506, 0, 0.0653506, 0.997862, 0, 0.285364, 0.949582)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.000274658, -0.0311432, -0.00357056)
+shape = SubResource("BoxShape3D_s6gl6")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_ld6w0")
+}
