@@ -22,19 +22,12 @@ func handle_gravity_and_jumping(delta):
 		velocity.y = JUMP_VELOCITY
 	
 func update_animations(direction):
-	if direction == Vector2(0,0):
-		$AnimationPlayer.stop()
-	choose_animation(direction)
-	
-func choose_animation(input_dir):
-	if input_dir.x == 1 and input_dir.y == 0:	$AnimationPlayer.play("walk_east")
-	if input_dir.x == -1 and input_dir.y == 0:	$AnimationPlayer.play("walk_west")
-	if input_dir.x == 0 and input_dir.y == 1:	$AnimationPlayer.play("walk_south")
-	if input_dir.x == 0 and input_dir.y == -1:	$AnimationPlayer.play("walk_north")
-	if input_dir.x > 0 and input_dir.y > 0:		$AnimationPlayer.play("walk_southeast")
-	if input_dir.x > 0 and input_dir.y < 0:		$AnimationPlayer.play("walk_northeast")
-	if input_dir.x < 0 and input_dir.y > 0:		$AnimationPlayer.play("walk_southwest")
-	if input_dir.x < 0 and input_dir.y < 0:		$AnimationPlayer.play("walk_northwest")
+	if (direction == Vector2.ZERO): 
+		$AnimationTree.get("parameters/playback").travel("idle")
+	else:
+		$AnimationTree.get("parameters/playback").travel("walk")
+		$AnimationTree.set("parameters/idle/blend_position", direction)
+		$AnimationTree.set("parameters/walk/blend_position", direction)
 	
 func move_player(direction):
 	if direction:
